@@ -370,7 +370,7 @@ local function run_adapter(adapter, configuration, opts)
   local name = configuration.name or '[no name]'
   local options = adapter.options or {}
   opts = vim.tbl_extend('keep', opts, {
-    cwd = options.cwd,
+    cwd = options.cwd or configuration.cwd,
     env = options.env
   })
   if adapter.type == 'executable' then
